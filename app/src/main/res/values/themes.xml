@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AllMessengerAccessInbox" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/green</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkLight</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
+    </style>
+
+    <style name="Theme.AllMessengerAccessInbox" parent="Base.Theme.AllMessengerAccessInbox" />
+    <style name="Theme.AllMessengerAccessInboxNight" parent="Base.Theme.AllMessengerAccessInbox" >
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+</resources>

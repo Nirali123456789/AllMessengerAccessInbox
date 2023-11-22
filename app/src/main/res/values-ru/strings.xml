@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Все доступы к мессенджерам - Входящие сообщения</string>
+    <string name="language">Язык</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="privacy">"Политика конфиденциальности "</string>
+    <string name="about_us">"О нас "</string>
+    <string name="share">Поделиться</string>
+    <string name="settings">Настройки</string>
+    <string name="home">Главная</string>
+    <string name="apps">"Редактировать приложения "</string>
+    <string name="rate">"Оцените нас "</string>
+    <string name="more">Другие приложения</string>
+    <string name="contact">"Свяжитесь с нами "</string>
+    <string name="dark">Темный</string>
+    <string name="light">Светлый</string>
+    <string name="star_to_give_us">"Спасибо за оценки!! "</string>
+    <string name="confirm_deletion">Подтвердить удаление</string>
+    <string name="Exit">Выход</string>
+    <string name="sure_exit">Вы уверены, что хотите выйти из приложения?</string>
+    <string name="title_Later">Позже</string>
+    <string name="enjoying_the_app">"Наслаждаетесь ли вы приложением? "</string>
+    <string name="are_you_sure_you_want_to_delete_this_item">"Вы уверены, что хотите удалить этот элемент? "</string>
+    <string name="submit">Подтвердить</string>
+    <string name="thanks_for_feedback">Спасибо за ценный отзыв!</string>
+    <string name="Help">Помогите нам улучшить!!</string>
+    <string name="hint">"Написать отзыв "</string>
+    <string name="selectLanguage">Выберите язык</string>
+    <string name="appTheme">Тема</string>
+</resources>

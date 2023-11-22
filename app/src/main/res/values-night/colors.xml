@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#656464</color>
+    <color name="lightgrey">#A19F9F</color>
+    <color name="green">#57BE83</color>
+    <color name="textcolor">#ffffff</color>
+    <color name="greylight">#E1DCDC</color>
+    <color name="dialogbg">#E8232323</color>
+    <color name="toast">#4A4949</color>
+    <color name="bgColor">#000</color>
+    <color name="rategbg">#232323</color>
+    <color name="bg">#232222</color>
+    <color name="colorPrimaryDark">#FF3700B3</color>
+    <color name="colorPrimaryDarkLight">#000000</color>
+</resources>

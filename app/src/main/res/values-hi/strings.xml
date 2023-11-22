@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"सभी मैसेंजर एक्सेस - इनबॉक्स "</string>
+    <string name="language">भाषा</string>
+    <string name="yes">हाँ</string>
+    <string name="no">नहीं</string>
+    <string name="privacy">"गोपनीयता नीति "</string>
+    <string name="about_us">"हमारे बारे में "</string>
+    <string name="share">"साझा करें "</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="home">होम</string>
+    <string name="apps">ऐप्स संपादित करें</string>
+    <string name="rate">हमें रेट करें</string>
+    <string name="more">और एप्लिकेशन</string>
+    <string name="contact">हमसे संपर्क करें</string>
+    <string name="dark">डार्क</string>
+    <string name="light">लाइट</string>
+    <string name="star_to_give_us">" रेटिंग के लिए धन्यवाद!!"</string>
+    <string name="confirm_deletion">मिटाने की पुष्टि करें (</string>
+    <string name="Exit">बाहर निकलें</string>
+    <string name="sure_exit">क्या आप निश्चित हैं कि आप ऐप से बाहर निकलना चाहते हैं?</string>
+    <string name="title_Later">"बाद में "</string>
+    <string name="enjoying_the_app">क्या आप ऐप का आनंद ले रहे हैं?</string>
+    <string name="are_you_sure_you_want_to_delete_this_item">क्या आप इस आइटम को मिटाना चाहते हैं?</string>
+    <string name="submit">" प्रस्तुत करें"</string>
+    <string name="thanks_for_feedback">" मूल्यवान प्रतिक्रिया के लिए धन्यवाद!"</string>
+    <string name="Help">हमें सुधारने में मदद करें!!</string>
+    <string name="hint">एक प्रतिक्रिया लिखें</string>
+    <string name="selectLanguage">"भाषा चुनें "</string>
+    <string name="appTheme">थीम</string>
+</resources>

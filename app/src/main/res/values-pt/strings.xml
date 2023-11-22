@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Acesso a Todas as Mensagens - Caixa de Entrada</string>
+    <string name="language">Língua</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="privacy">Política de Privacidade</string>
+    <string name="about_us">Sobre nós</string>
+    <string name="share">Compartilhar</string>
+    <string name="settings">Configurações</string>
+    <string name="home">Início</string>
+    <string name="apps">Editar Apps</string>
+    <string name="rate">Avalie-nos</string>
+    <string name="more">Mais aplicativos</string>
+    <string name="contact">Contate-nos</string>
+    <string name="dark">Escuro</string>
+    <string name="light">Claro</string>
+    <string name="star_to_give_us">Obrigado pelas avaliações!!</string>
+    <string name="confirm_deletion">Confirmar exclusão</string>
+    <string name="Exit">Sair</string>
+    <string name="sure_exit">Tem certeza de que deseja sair do aplicativo?</string>
+    <string name="title_Later">Mais tarde</string>
+    <string name="enjoying_the_app">Está gostando do aplicativo?</string>
+    <string name="are_you_sure_you_want_to_delete_this_item">Tem certeza de que deseja excluir este item?</string>
+    <string name="submit">Enviar</string>
+    <string name="thanks_for_feedback">Obrigado pelo seu feedback valioso!</string>
+    <string name="Help">Ajude-nos a melhorar!!</string>
+    <string name="hint">Escrever um feedback</string>
+    <string name="selectLanguage">Selecionar idioma</string>
+    <string name="appTheme">Tema</string>
+</resources>

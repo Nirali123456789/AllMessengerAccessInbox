@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alle Messenger-Zugriff - Posteingang</string>
+    <string name="language">Sprache</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="privacy">Datenschutzrichtlinie</string>
+    <string name="about_us">Über uns</string>
+    <string name="share">Teilen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="home">Zuhause</string>
+    <string name="apps">Apps bearbeiten</string>
+    <string name="rate">" Bewerte uns"</string>
+    <string name="more">Weitere Apps</string>
+    <string name="contact">Kontaktiere uns</string>
+    <string name="dark">Dunkel</string>
+    <string name="light">Licht</string>
+    <string name="star_to_give_us">Vielen Dank für Ihre Bewertungen!!</string>
+    <string name="confirm_deletion">Löschung bestätigen</string>
+    <string name="Exit">Beenden</string>
+    <string name="sure_exit">Sind Sie sicher, dass Sie die App beenden möchten?</string>
+    <string name="title_Later">Später</string>
+    <string name="enjoying_the_app">" Gefällt Ihnen die App?"</string>
+    <string name="are_you_sure_you_want_to_delete_this_item">Sind Sie sicher, dass Sie dieses Element löschen möchten?</string>
+    <string name="submit">Absenden</string>
+    <string name="thanks_for_feedback">" Vielen Dank für Ihr wertvolles Feedback!"</string>
+    <string name="Help">Helfen Sie uns, uns zu verbessern!!</string>
+    <string name="hint">Feedback schreiben</string>
+    <string name="selectLanguage">Sprache auswählen</string>
+    <string name="appTheme">Thema</string>
+</resources>
