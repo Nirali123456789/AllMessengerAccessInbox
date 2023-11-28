@@ -78,7 +78,10 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/language"/>
+                android:text="@string/language"
+                android:textColor="@color/textcolor"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_12sdp"/>
         </LinearLayout>
         <RelativeLayout
             android:layout_margin="@dimen/_5sdp"
@@ -96,13 +99,14 @@
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/mode"
-                android:padding="@dimen/_5sdp"
+
                 android:layout_toStartOf="@+id/selectedTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/regular"
                 android:text="@string/appTheme"
                 android:textColor="@color/textcolor"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/_12sdp"
              />
 
             <TextView
@@ -146,7 +150,9 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/privacy"/>
+                android:text="@string/privacy"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/textcolor"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/rate_layout"
@@ -165,7 +171,9 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/rate"/>
+                android:text="@string/rate"
+                android:textColor="@color/textcolor"
+                android:textSize="@dimen/_12sdp"/>
         </LinearLayout>
         <LinearLayout
             android:visibility="gone"
@@ -185,7 +193,9 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/more"/>
+                android:text="@string/more"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/textcolor"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/share_layout"
@@ -204,7 +214,8 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/share"/>
+                android:text="@string/share"
+                android:textColor="@color/textcolor"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/contact_layout"
@@ -223,7 +234,9 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/contact"/>
+                android:text="@string/contact"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/textcolor"/>
         </LinearLayout>
     </LinearLayout>
 

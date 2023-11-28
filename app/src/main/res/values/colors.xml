@@ -15,5 +15,6 @@
     <color name="bg">#FFFFFF</color>
     <color name="colorPrimaryLight">#FF6200EE</color>
     <color name="colorPrimaryDarkLight">@color/green</color>
+    <color name="statusbarcolor">#ffffff</color>
 
 </resources>

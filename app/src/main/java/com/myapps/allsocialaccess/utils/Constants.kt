@@ -12,7 +12,6 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
@@ -25,16 +24,16 @@ import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.viewpager.widget.ViewPager.DecorView
 import com.myapps.allsocialaccess.MainApplication
 import com.myapps.allsocialaccess.R
+import com.myapps.allsocialaccess.interfaces.SafeClickListener
 import me.zhanghai.android.materialratingbar.MaterialRatingBar
 import java.lang.ref.WeakReference
 import java.util.Locale
@@ -142,6 +141,7 @@ class Constants {
                     var image: ImageView = rateUsDialog.findViewById(R.id.imglogo)
                     var submit: TextView = rateUsDialog.findViewById(R.id.submit)
                     var textTitle: TextView = rateUsDialog.findViewById(R.id.enjoying_text)
+                    var rate_text:TextView = rateUsDialog.findViewById(R.id.rate_text)
 
                     val emojiRatingBar: MaterialRatingBar =
                         rateUsDialog.findViewById(R.id.emoji_rating_bar)
@@ -178,6 +178,7 @@ class Constants {
 
                         if (ratingCount >= 4) {
                             MainApplication.prefs1?.userHasRatedApp = true
+                            rate_text.visibility = View.VISIBLE
                             feedback_text.isVisible = false
                             rateUsDialog.dismiss()
                             rateUs(activity)
@@ -188,6 +189,7 @@ class Constants {
                             submit.isVisible = true
                             btn_rate.isVisible = false
                             textTitle.text = activity.getString(R.string.Help)
+                            rate_text.visibility = View.GONE
 
                             submit.setOnClickListener {
 
@@ -278,9 +280,9 @@ class Constants {
             }
         }
 
-        fun shareUs(activity: Activity) {
+        fun shareUs(activity: Activity?) {
 
-            val appPackageName = activity.packageName
+            val appPackageName = activity!!.packageName
             val appMarketLink = "https://play.google.com/store/apps/details?id=$appPackageName"
 
             val intent = Intent(Intent.ACTION_SEND)
@@ -292,6 +294,7 @@ class Constants {
             )
 
             activity.startActivity(Intent.createChooser(intent, "Share via"))
+
         }
 
         public fun hideSystemUI(_decorView: View) {
@@ -336,24 +339,34 @@ class Constants {
             startActivity(emailIntent)
         }
 
-        fun Activity.setStatusBarColor(color:Int){
-            var flags = window?.decorView?.systemUiVisibility // get current flag
-            if (flags != null) {
-                if(isColorDark(color)){
-                    flags = flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
-                    window?.decorView?.systemUiVisibility = flags
-                }else{
-                    flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                    window?.decorView?.systemUiVisibility = flags
-                }
+        fun Activity.setStatusBarColor(activity: Activity,window: Window){
+            val isDarkMode = resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK == android.content.res.Configuration.UI_MODE_NIGHT_YES
+
+            if (isDarkMode) {
+                // Dark mode is active, set status bar color to dark
+                updateStatusBarColor(activity,window, R.color.black)
+                // You may also set the status bar icons to light if needed
+                window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
+                        android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            } else {
+                // Light mode is active, set status bar color to light
+                updateStatusBarColor(activity,window,R.color.transparent)
+                // Clear the light status bar flag if set
+                window.decorView.systemUiVisibility = window.decorView.systemUiVisibility and
+                        android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
             }
-            window?.statusBarColor = color
+        }
+        private fun updateStatusBarColor(activity: Activity,window:Window,colorResId: Int) {
+            window.statusBarColor = ContextCompat.getColor(activity, colorResId)
+        }
+        fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit) {
+            val safeClickListener = SafeClickListener {
+                onSafeClick(it)
+            }
+            setOnClickListener(safeClickListener)
         }
 
-        fun Activity.isColorDark(color:Int) : Boolean{
-            val darkness = 1 - (0.299 * Color.red(color) + 0.587 * Color.green(color) + 0.114 * Color.blue(color)) / 255
-            return darkness >= 0.5
-        }
+
     }
 
 }

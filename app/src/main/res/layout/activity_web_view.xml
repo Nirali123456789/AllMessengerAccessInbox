@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".ui.WebViewActivity">
 
     <RelativeLayout
@@ -32,6 +31,7 @@
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_toEndOf="@+id/back"
             android:fontFamily="@font/medium"
+            android:textStyle="bold"
             android:padding="@dimen/_5sdp"
             android:text="@string/app_name"
             android:textColor="@color/white"
@@ -40,12 +40,12 @@
 
     </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/statusBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusBar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,5 +42,7 @@
     <string name="hint">Write a Feedback</string>
     <string name="selectLanguage">Select language</string>
     <string name="appTheme">Theme</string>
+    <string name="empty" />
+    <string name="nodata">No data found!</string>
 
 </resources>

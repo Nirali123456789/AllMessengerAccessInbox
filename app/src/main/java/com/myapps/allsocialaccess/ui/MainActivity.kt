@@ -2,10 +2,8 @@ package com.myapps.allsocialaccess.ui
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -21,10 +19,8 @@ import com.myapps.allsocialaccess.R
 import com.myapps.allsocialaccess.databinding.ActivityMainBinding
 import com.myapps.allsocialaccess.fragments.SettingFragment
 import com.myapps.allsocialaccess.utils.Constants
-import com.myapps.allsocialaccess.utils.Constants.Companion.setStatusBarColor
 import com.myapps.allsocialaccess.utils.Constants.Companion.showExitConfirmationDialog
 import com.myapps.allsocialaccess.utils.LanguageContextWrapper
-import java.lang.ref.WeakReference
 
 class MainActivity : BaseActivity<ActivityMainBinding>(),
     NavigationView.OnNavigationItemSelectedListener {
@@ -33,7 +29,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     private var _decorView: View? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         _decorView = window.decorView
-        setStatusBarColor(Color.parseColor("#57BE83"))
         super.onCreate(savedInstanceState)
         setView()
         if (savedInstanceState == null) {
@@ -68,6 +63,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     private fun setView() {
         if (!MainApplication.prefs1!!.firstSelection) {
             startActivity(Intent(this, SocialMediaAppActivity::class.java))
+           // overridePendingTransition(R.anim.anim_right, R.anim.anim_left);
         }
         drawerLayout = binding.drawerLayout
         val fragmentManager = supportFragmentManager
@@ -75,9 +71,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
         fragmentTransaction.replace(R.id.frameLayout, HomeFragment())
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
-
-
-        setSupportActionBar(binding.toolbar)
 
         binding.navView.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
@@ -98,7 +91,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
             R.id.nav_apps -> startActivity(Intent(this, SocialMediaAppActivity::class.java))
             R.id.nav_settings -> {
-                binding.toolbar.title = getString(R.string.settings)
+                binding.customTitle.text = getString(R.string.settings)
                 setFragment(SettingFragment(), "SettingFragment",getString(R.string.settings))
             }
 
@@ -119,14 +112,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
     private fun setFragment(fragment: Fragment, tag: String,title:String) {
         currentFragment = fragment
-        binding.toolbar.title = title
+        binding.customTitle.text = title
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frameLayout, fragment,tag)
         transaction.addToBackStack(null)
         transaction.commit()
     }
     override fun onResume() {
-        Constants.hideSystemUI(_decorView!!)
+        //Constants.hideSystemUI(_decorView!!)
         super.onResume()
     }
 

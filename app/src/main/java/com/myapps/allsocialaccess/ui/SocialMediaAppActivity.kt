@@ -1,6 +1,7 @@
 package com.myapps.allsocialaccess.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import com.myapps.allsocialaccess.interfaces.AdapterCallback
 import com.myapps.allsocialaccess.models.SocialMediaApp
 import com.myapps.allsocialaccess.repositoryImpl.SocialMediaRepositoryImpl
 import com.myapps.allsocialaccess.utils.Constants
+import com.myapps.allsocialaccess.utils.Constants.Companion.setStatusBarColor
 import com.myapps.allsocialaccess.viewmodels.SocialMediaViewModel
 import com.myapps.allsocialaccess.viewmodels.SocialMediaViewModelFactory
 import kotlinx.coroutines.Dispatchers
@@ -131,11 +133,14 @@ class SocialMediaAppActivity : BaseActivity<ActivitySocialMediaAppBinding>(), Ad
             fragmentManager.popBackStack()
         } else {
             super.onBackPressed()
+            overridePendingTransition(
+                R.anim.slide_in_left,
+                R.anim.slide_out
+            );
         }
     }
 
     override fun onResume() {
-        Constants.hideSystemUI(_decorView!!)
         super.onResume()
     }
 

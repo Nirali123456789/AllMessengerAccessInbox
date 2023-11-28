@@ -2,7 +2,6 @@ package com.myapps.allsocialaccess.fragments
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,8 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RadioButton
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -27,7 +24,7 @@ import com.myapps.allsocialaccess.ui.MainActivity
 import com.myapps.allsocialaccess.utils.Constants
 import com.myapps.allsocialaccess.utils.Constants.Companion.contactus
 import com.myapps.allsocialaccess.utils.Constants.Companion.privacyPolicy
-import com.myapps.allsocialaccess.utils.themes.Companion.changeTheme
+import com.myapps.allsocialaccess.utils.Constants.Companion.setSafeOnClickListener
 import com.myapps.allsocialaccess.utils.themes.Companion.setTheme
 import com.myapps.allsocialaccess.utils.themes.Companion.themeDialog
 
@@ -58,25 +55,25 @@ class SettingFragment() : Fragment(), AdapterOnClick {
         }
 
 
-        binding!!.language.setOnClickListener {
+        binding!!.language.setSafeOnClickListener {
             activity?.let { it1 -> showBottomSheetDialog(it1) }
         }
-        binding!!.appTheme.setOnClickListener {
+        binding!!.appTheme.setSafeOnClickListener {
             activity!!.themeDialog()
         }
-        binding!!.privacyLayout.setOnClickListener {
+        binding!!.privacyLayout.setSafeOnClickListener {
             activity!!.privacyPolicy()
         }
-        binding!!.rateLayout.setOnClickListener {
+        binding!!.rateLayout.setSafeOnClickListener {
             activity?.let { it1 -> Constants.rateUs(it1) }
         }
         binding!!.moreLayout.setOnClickListener {
 
         }
-        binding!!.shareLayout.setOnClickListener {
+        binding!!.shareLayout.setSafeOnClickListener {
             activity?.let { it1 -> Constants.shareUs(it1) }
         }
-        binding!!.contactLayout.setOnClickListener {
+        binding!!.contactLayout.setSafeOnClickListener {
             activity!!.contactus()
         }
 
@@ -148,6 +145,11 @@ class SettingFragment() : Fragment(), AdapterOnClick {
         val intent = Intent(context, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         context!!.startActivity(intent)
+    }
+
+    override fun onStop() {
+        super.onStop()
+
     }
 
 }

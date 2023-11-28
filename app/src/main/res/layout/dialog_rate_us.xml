@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_12sdp"
                 android:layout_marginRight="@dimen/_12sdp"
-                android:src="@drawable/first"
+                android:src="@drawable/fifth"
                 android:visibility="visible" />
             <androidx.appcompat.widget.AppCompatEditText
                 android:visibility="gone"
@@ -65,6 +65,7 @@
                 android:textSize="@dimen/_15sdp" />
 
             <TextView
+                android:id="@+id/rate_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -86,7 +87,7 @@
                 android:layout_gravity="center"
                 style="@style/Widget.MaterialRatingBar.RatingBar"
                 android:layout_margin="@dimen/_8sdp"
-                android:rating="1"
+                android:rating="5"
                 android:stepSize="@integer/material_motion_duration_long_1"
                 android:fontFamily="@font/medium" />
             <LinearLayout

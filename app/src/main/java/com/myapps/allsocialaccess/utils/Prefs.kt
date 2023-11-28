@@ -41,7 +41,7 @@ class Prefs (context: Context)
         set(value) = preferences.edit().putBoolean(selection, value).apply()
 
     var position: Int?
-        get() = preferences.getInt("position", 0)
+        get() = preferences.getInt("position", -2)
         set(value) = preferences.edit().putInt("position", value!!).apply()
 
 }

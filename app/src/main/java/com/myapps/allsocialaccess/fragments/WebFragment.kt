@@ -2,6 +2,7 @@ package com.myapps.allsocialaccess.fragments
 
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -58,6 +59,7 @@ class WebFragment(private val packageName:String) : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }
 

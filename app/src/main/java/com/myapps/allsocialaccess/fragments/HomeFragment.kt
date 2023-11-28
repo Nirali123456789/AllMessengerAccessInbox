@@ -15,12 +15,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.myapps.allsocialaccess.MainApplication.Companion.database
 import com.myapps.allsocialaccess.R
+import com.myapps.allsocialaccess.databinding.FragmentHomeBinding
+import com.myapps.allsocialaccess.databinding.FragmentWebviewBinding
 import com.myapps.allsocialaccess.interfaces.AdapterCallback
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment(), AdapterCallback {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding
     private lateinit var adapter: SocialMediaAppAdapter
     private lateinit var recyclerView: RecyclerView
     private var shouldReplaceFragment: Boolean = false
@@ -29,9 +33,9 @@ class HomeFragment : Fragment(), AdapterCallback {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        recyclerView = view!!.findViewById<RecyclerView>(R.id.homeRecyclerView)
-        return view
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        recyclerView = binding!!.homeRecyclerView
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,10 +50,26 @@ class HomeFragment : Fragment(), AdapterCallback {
             val selectedApps = getSelectedAppsFromDatabase()
             try {
                 Log.d("TAG", "updateData: ${selectedApps.size}")
-                adapter.updateData(selectedApps, emptyList())
+                if (selectedApps.size==0) {
+                    visibility(true)
+
+                } else
+                    adapter.updateData(selectedApps, emptyList())
+                    visibility(false)
+
             } catch (e: Exception) {
 
             }
+        }
+    }
+
+    private fun visibility(isVisible: Boolean) {
+        if (isVisible) {
+            binding?.noDataimage!!.visibility = View.VISIBLE
+            binding!!.noData.visibility = View.VISIBLE
+        } else {
+            binding?.noDataimage!!.visibility = View.GONE
+            binding!!.noData.visibility = View.GONE
         }
     }
 
@@ -60,7 +80,12 @@ class HomeFragment : Fragment(), AdapterCallback {
     }
 
     override fun onItemClicked(data: SocialMediaApp) {
-       startActivity(Intent(activity, WebViewActivity::class.java).putExtra("package",data.packageName))
+        startActivity(
+            Intent(activity, WebViewActivity::class.java).putExtra(
+                "package",
+                data.packageName
+            )
+        )
     }
 
     override fun onResume() {

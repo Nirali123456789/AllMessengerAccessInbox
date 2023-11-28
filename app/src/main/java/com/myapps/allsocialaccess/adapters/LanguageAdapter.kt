@@ -7,6 +7,7 @@
 package com.myapps.allsocialaccess.adapters
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -20,24 +21,21 @@ import com.myapps.allsocialaccess.databinding.ListItemBinding
 import com.myapps.allsocialaccess.interfaces.AdapterOnClick
 import com.myapps.allsocialaccess.models.Language
 
+
 class LanguageAdapter(
-    private val adapterOnClick: AdapterOnClick,
-    private val languageList: ArrayList<Language>,
-    private val activity: AppCompatActivity,
-    private val bottomSheetDialog: BottomSheetDialog?
-) :
-    RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>() {
+    val adapterOnClick: AdapterOnClick,
+    private val LanguageList: ArrayList<Language>,
+    val activity: AppCompatActivity,
+    val bottomSheetDialog: BottomSheetDialog?
+) : RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>() {
 
-    var languagelist = languageList
+    var languagelist = LanguageList
     var languageActivity = activity
+    var selectedItemPosition: Int = -1
 
-    companion object {
-        var selectedItemPosition: Int = -1
-    }
 
     class LanguageViewHolder(
-        private val binding: ListItemBinding,
-        private val adapter: LanguageAdapter
+        private val binding: ListItemBinding, private val adapter: LanguageAdapter
     ) : RecyclerView.ViewHolder(binding.root) {
         var container: RelativeLayout? = null
         var name: TextView? = null
@@ -57,28 +55,22 @@ class LanguageAdapter(
                 name.text = item.language
 
 
-                binding.name.setOnClickListener {
-                    selectedItemPosition = adapterPosition
-                    adapter.notifyDataSetChanged()
-                    adapterOnClick.onClickLanguage(
-                        item.language,
-                        bottomSheetDialog,
-                        selectedItemPosition
-                    )
-
-
-                    // container.setBackgroundResource(R.drawable.btn_bg_select)
-                }
-
-
             }
-            setSelected()
+            binding.name.setOnClickListener {
+                binding.container!!.setBackgroundResource(R.drawable.bg_round)
+                adapter.selectedItemPosition = adapterPosition
+                adapterOnClick.onClickLanguage(
+                    item.language, bottomSheetDialog, adapterPosition
+                )
+                adapter.notifyDataSetChanged()
+
+
+                // container.setBackgroundResource(R.drawable.btn_bg_select)
+            }
+
         }
 
-        fun setSelected() {
-            // selectedItemPosition = pos
-            //adapter.notifyDataSetChanged()
-        }
+
     }
 
     // ...
@@ -91,7 +83,9 @@ class LanguageAdapter(
     override fun onBindViewHolder(holder: LanguageViewHolder, position: Int) {
         val currentLanguage = languagelist[position]
         holder.bind(currentLanguage, languageActivity, adapterOnClick, bottomSheetDialog!!)
-        if (selectedItemPosition == holder.adapterPosition) {
+
+        Log.d("TAG", "onBindViewHolder: ${selectedItemPosition}cxvcxv${position}")
+        if (selectedItemPosition == position) {
             holder.container!!.setBackgroundResource(R.drawable.bg_round)
             holder.name!!.setTextColor(Color.WHITE)
         } else {
@@ -99,9 +93,14 @@ class LanguageAdapter(
             holder.name!!.setTextColor(activity.getColor(R.color.textcolor))
         }
 
-        if (MainApplication.prefs1!!.position!! == position)
-            holder.container!!.setBackgroundResource(R.drawable.bg_round)
+
+        if (MainApplication.prefs1!!.position!! == position) {
+            holder.container!!.setBackgroundResource(
+                R.drawable.bg_round
+            )
             holder.name!!.setTextColor(activity.getColor(R.color.textcolor))
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -111,6 +110,9 @@ class LanguageAdapter(
 
 
 }
+
+
+
 
 
 
